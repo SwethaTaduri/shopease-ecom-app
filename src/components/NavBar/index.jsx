@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useLogin } from "../../context/login-context";
-import { useCart } from "../../context/cart-context";
+import { useLogin, useCart } from "../../context";
+
 
 export const NavBar = () => {
 

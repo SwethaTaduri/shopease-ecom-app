@@ -1,5 +1,5 @@
-import { useCart } from "../../context/cart-context";
-import { findProductInWishlist } from "../../utils/findProductInWishlist";
+import { useCart } from "../../context";
+import { findProductInWishlist } from "../../utils";
 import { useNavigate } from "react-router-dom";
 
 export const HorizontalCard = ({ product }) => {

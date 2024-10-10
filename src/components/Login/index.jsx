@@ -1,5 +1,5 @@
-import { useLogin } from "../../context/login-context";
-import { userLogin } from "../../api/auth";
+import { useLogin } from "../../context";
+import { userLogin } from "../../api";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {

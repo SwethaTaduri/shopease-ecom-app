@@ -1,5 +1,5 @@
-import { useCart } from "../../context/cart-context"
-import { getCartPrice } from "../../utils/getCartPrice";
+import { useCart } from "../../context"
+import { getCartPrice } from "../../utils";
 
 export const PriceDetails = () => {
 

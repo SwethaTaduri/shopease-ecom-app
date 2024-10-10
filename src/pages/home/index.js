@@ -1,18 +1,15 @@
-import { NavBar } from "../../components/NavBar";
-import { Fragment } from "react";
-import { useEffect, useState } from "react";
-import { getAllProducts } from "../../api/getAllProducts";
-import { ProductCard } from "../../components/ProductCard";
-import { useCart } from "../../context/cart-context";
-import { getAllCategories } from "../../api/getAllCategories";
-import { getProductsByCategory } from "../../utils/getProductsByCategory.js";
+import { NavBar, ProductCard } from "../../components";
+import {  Fragment, useEffect, useState } from "react";
+import { getAllProducts, getAllCategories } from "../../api";
+import { useCart } from "../../context";
+import { getProductsByCategory } from "../../utils";
 
 
 export const Home = () => {
 
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [selectedCategory,setSelectedCategory] = useState("All");
+    const [selectedCategory, setSelectedCategory] = useState("All");
 
     const { cart, wishlist } = useCart();
 
@@ -24,26 +21,26 @@ export const Home = () => {
         (async () => {
             const data = await getAllProducts();
             const categories1 = await getAllCategories();
-            const updatedCategories = [...categories1,{id:"1a" , name:"All"}];
+            const updatedCategories = [...categories1, { id: "1a", name: "All" }];
             setProducts(data);
             setCategories(updatedCategories);
         })()
     }, []);
 
     const onCategoryClick = (categoryName) => {
-         setSelectedCategory(categoryName); 
+        setSelectedCategory(categoryName);
     }
-     
+
     //the attributes that we pass to getproductsbycategory have to be global values bcz of which we created the selectedcategories
-    const filterByCategory = getProductsByCategory(products,selectedCategory);
+    const filterByCategory = getProductsByCategory(products, selectedCategory);
 
     return (
         <Fragment>
             <NavBar />
             <main className="flex flex-col">
-            <div className="flex flex-wrap pt-3 gap-3 justify-center items-center">
+                <div className="flex flex-wrap pt-3 gap-3 justify-center items-center">
                     {
-                        categories?.length > 0 && categories.map(category=> <div key={category.id} className="text-cyan-50 text-sm bg-cyan-600 p-2 rounded-lg hover:cursor-pointer" onClick={()=> onCategoryClick(category.name)}> {category.name} </div>)
+                        categories?.length > 0 && categories.map(category => <div key={category.id} className="text-cyan-50 text-sm bg-cyan-600 p-2 rounded-lg hover:cursor-pointer" onClick={() => onCategoryClick(category.name)}> {category.name} </div>)
                     }
                 </div>
                 <div className="flex flex-wrap gap-6 justify-center pt-8">

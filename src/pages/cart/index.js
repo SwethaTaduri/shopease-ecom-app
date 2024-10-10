@@ -1,7 +1,5 @@
-import { NavBar } from "../../components/NavBar";
-import { useCart } from "../../context/cart-context";
-import { HorizontalCard } from "../../components/HorizontalCard";
-import { PriceDetails } from "../../components/PriceDetails";
+import { NavBar, HorizontalCard, PriceDetails } from "../../components";
+import { useCart } from "../../context";
 import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
@@ -29,12 +27,12 @@ export const Cart = () => {
                                 </div>
                             </div>
                         </>
-                    ) : 
-                    
-                    <div className="flex flex-col items-center">
-                         <h2 className="text-3xl p-4"> Cart is Empty </h2>
-                         <p onClick={()=> navigate('/')} className="p-2 text-[#0891b2] underline hover:cursor-pointer text-2xl"> Click to add items to cart </p>
-                    </div>
+                    ) :
+
+                        <div className="flex flex-col items-center">
+                            <h2 className="text-3xl p-4"> Cart is Empty </h2>
+                            <p onClick={() => navigate('/')} className="p-2 text-[#0891b2] underline hover:cursor-pointer text-2xl"> Click to add items to cart </p>
+                        </div>
                 }
 
             </main>
