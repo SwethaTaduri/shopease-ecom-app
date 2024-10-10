@@ -12,20 +12,28 @@ export const ProductCard = ({ product }) => {
     const isProductInWishlist = findProductInWishlist(wishlist, product.id);
 
     const onCartClick = (product) => {
-        !isProductInCart ?
+        if (!isProductInCart) {
+            localStorage.setItem("cart", JSON.stringify([...cart, product]))
             cartDispatch(
                 {
                     type: "ADD_TO_CART",
                     payload: { product }
-                }) : navigate('/cart');
-    };
+                })
+        } else {
+            navigate('/cart');
+        }
+    }
 
     const onWishlistClick = (product) => {
-        !isProductInWishlist ?
+        if (!isProductInWishlist) {
+            localStorage.setItem("wishlist", JSON.stringify([...wishlist, product]))
             cartDispatch({
                 type: 'ADD_TO_WISHLIST',
                 payload: { product }
-            }) : navigate('/wishlist');
+            })
+        } else {
+            navigate('/wishlist');
+        }
     }
 
     return (

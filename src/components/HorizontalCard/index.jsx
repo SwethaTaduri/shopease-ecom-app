@@ -43,10 +43,6 @@ export const HorizontalCard = ({ product }) => {
         }
     }
 
-
-
-
-
     return (
         <div className="card-horizontal d-flex shadow">
             <div className="card-hori-image-container relative">
