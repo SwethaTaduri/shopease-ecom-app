@@ -49,9 +49,9 @@ export const HorizontalCard = ({ product }) => {
                 <img className="card-image" src={product.images[0]} alt="img" />
             </div>
             <div className="card-details d-flex direction-column">
-                <div className="card-title">{product.title}</div>
+                <div className="card-des">{product.title}</div>
                 <div className="card-description">
-                    <p className="card-price">{product.price} </p>
+                    <p className="card-price">${product.price} </p>
                 </div>
                 <div className="quantity-container d-flex gap">
                     <p className="q-title">Quantity: </p>
