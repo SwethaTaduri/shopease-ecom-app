@@ -19,14 +19,14 @@ export const WishlistCard = ({ product }) => {
      };
 
      return (
-          <div className="card-horizontal d-flex shadow">
+          <div className="card-horizontal d-flex shadow w-[600px]">
                <div className="card-hori-image-container relative">
                     <img className="card-image" src={product.images[0]} alt="img" />
                </div>
                <div className="card-details d-flex direction-column">
-                    <div className="card-title">{product.title}</div>
+                    <div className="card-des">{product.title}</div>
                     <div className="card-description">
-                         <p className="card-price">Rs. {product.price} </p>
+                         <p className="card-price"> $ {product.price} </p>
                     </div>
                     <div className="quantity-container d-flex gap">
                          <p className="q-title">Quantity: </p>
@@ -37,7 +37,7 @@ export const WishlistCard = ({ product }) => {
                          </div>
                     </div>
                     <div className="cta-btn d-flex gap">
-                         <div className="cta-btn">
+                         <div className="cta-btn w-[200px]">
                               <button onClick={()=>onCartClick(product)} className="button hori-btn btn-primary btn-icon d-flex align-center justify-center gap cursor btn-margin"> <span class="material-symbols-outlined">
                                    shopping_cart
                               </span> Add To Cart</button>
